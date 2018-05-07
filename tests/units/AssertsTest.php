@@ -34,7 +34,7 @@
 
 namespace abexto\amylian\phpunit\tests;
 
-require_once __DIR__.'/../../src/compatibility.inc.php';
+require_once __DIR__ . '/../../src/compatibility.inc.php';
 
 /**
  * Description of AssertsTest
@@ -58,7 +58,50 @@ class AssertsTest extends \PHPUnit\Framework\TestCase
         } catch (\PHPUnit\Framework\AssertionFailedError $e) {
             return;
         }
-        throw new AssertionFailedError(__METHOD__.' did not fail as expected');
+        throw new \PHPUnit\Framework\AssertionFailedError(__METHOD__ . ' did not fail as expected');
+    }
+
+    public function testEqualsObjectData()
+    {
+        $o1 = new ObjectData(1, 2, 3, new ObjectData(11, 12, 13, null));
+        $o2 = new ObjectData(1, 2, 3, new ObjectData(11, 12, 13, null));
+        $this->assertEquals($o1, $o2);
+    }
+
+    public function testEqualsObjectDataFailing()
+    {
+        try {
+            $o1 = new ObjectData(1, 2, 3, ObjectData(11, 12, 13, null));
+            $o2 = new ObjectData(1, 2, 3, ObjectData(11, 12, 999999999, null));
+            $this->assertEquals($o1, $o2);
+        } catch (\PHPUnit\Framework\AssertionFailedError $e) {
+            return;
+        }
+        throw new \PHPUnit\Framework\AssertionFailedError(__METHOD__ . ' did not fail as expected');
+    }
+
+}
+
+/*
+ * Class for Tests
+ */
+
+class ObjectData
+{
+
+    public $pub          = null;
+    protected $prot      = null;
+    private $priv        = null;
+    protected $subObject = null;
+    
+    
+
+    public function __construct($pub, $prot, $priv, $subObject)
+    {
+        $this->pub       = $pub;
+        $this->prot      = $prot;
+        $this->priv      = $priv;
+        $this->subObject = $subObject;
     }
 
 }
