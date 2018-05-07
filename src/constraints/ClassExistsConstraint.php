@@ -32,7 +32,7 @@
  * 
  */
 
-namespace abexto\amylian\phpunit\constraints\ClassExistsConstraint;
+namespace abexto\amylian\phpunit\constraints;
 
 require_once __DIR__.'/../compatibility.inc.php';
 
