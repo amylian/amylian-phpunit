@@ -51,6 +51,6 @@ trait AssertClassExistsTrait
     public static function assertClassExists($className, $message = '', $autoload = true)
     {
         $constraint = new \abexto\amylian\phpunit\constraints\ClassExistsConstraint($autoload);
-        static::assertThat($actual, $constraint, $message);
+        static::assertThat($className, $constraint, $message);
     }
 }
