@@ -52,12 +52,12 @@ class ClassExistsConstraint extends \PHPUnit\Framework\Constraint\Constraint
         $this->autoload = $autoload;
     }    
     
-    protected function matches($other)
+    protected function matches($other): bool
     {
         return class_exists($other, $this->autoload);
     }
     
-    protected function failureDescription($other)
+    protected function failureDescription($other): string
     {
         return 'class '.$other.' exists ';
     }
