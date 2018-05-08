@@ -71,8 +71,8 @@ class AssertsTest extends \PHPUnit\Framework\TestCase
     public function testEqualsObjectDataFailing()
     {
         try {
-            $o1 = new ObjectData(1, 2, 3, ObjectData(11, 12, 13, null));
-            $o2 = new ObjectData(1, 2, 3, ObjectData(11, 12, 999999999, null));
+            $o1 = new ObjectData(1, 2, 3, new ObjectData(11, 12, 13, null));
+            $o2 = new ObjectData(1, 2, 3, new ObjectData(11, 12, 999999999, null));
             $this->assertEquals($o1, $o2);
         } catch (\PHPUnit\Framework\AssertionFailedError $e) {
             return;
