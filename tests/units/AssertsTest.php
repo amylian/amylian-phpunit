@@ -32,7 +32,7 @@
  * 
  */
 
-namespace abexto\amylian\phpunit\tests;
+namespace amylian\phpunit\tests;
 
 require_once __DIR__ . '/../../src/compatibility.inc.php';
 
@@ -44,7 +44,7 @@ require_once __DIR__ . '/../../src/compatibility.inc.php';
 class AssertsTest extends \PHPUnit\Framework\TestCase
 {
 
-    use \abexto\amylian\phpunit\traits\AssertClassExistsTrait;
+    use \amylian\phpunit\traits\AssertClassExistsTrait;
 
     public function testAssertClassExistsForExisting()
     {

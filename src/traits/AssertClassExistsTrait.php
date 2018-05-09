@@ -32,7 +32,7 @@
  * 
  */
 
-namespace abexto\amylian\phpunit\traits;
+namespace amylian\phpunit\traits;
 
 /**
  * Declares assertClassExists for phpunit
@@ -50,7 +50,7 @@ trait AssertClassExistsTrait
      */
     public static function assertClassExists($className, $message = '', $autoload = true)
     {
-        $constraint = new \abexto\amylian\phpunit\constraints\ClassExistsConstraint($autoload);
+        $constraint = new \amylian\phpunit\constraints\ClassExistsConstraint($autoload);
         static::assertThat($className, $constraint, $message);
     }
 }

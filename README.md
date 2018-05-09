@@ -15,4 +15,4 @@ composer require amylian/amylian-phpunit --dev
 
 ### assertClassExists 
 
-add `use \abexto\amylian\phpunit\traits\AssertClassExistsTrait;` to your test class declaration and call `$this->assertClassExists(\My\Fully\Qualified\ClassName::class)`. 
+add `use \amylian\phpunit\traits\AssertClassExistsTrait;` to your test class declaration and call `$this->assertClassExists(\My\Fully\Qualified\ClassName::class)`. 
