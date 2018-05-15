@@ -53,4 +53,18 @@ trait AssertClassExistsTrait
         $constraint = new \amylian\phpunit\constraints\ClassExistsConstraint($autoload);
         static::assertThat($className, $constraint, $message);
     }
+    
+    /**
+     * Assert class exists
+     * 
+     * @param string $className Classname to check
+     * @param string $message Message in case of failure
+     * @param bool $autoload Allow autoloading
+     */
+    public static function assertClassNotExists($className, $message = '', $autoload = true)
+    {
+        $constraint = new \amylian\phpunit\constraints\ClassExistsConstraint($autoload);
+        static::assertThat($className, new \PHPUnit\Framework\Constraint\LogicalNot($constraint), $message);
+    }
+    
 }
