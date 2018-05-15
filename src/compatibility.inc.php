@@ -42,6 +42,17 @@ namespace PHPUnit\Framework\Constraint {
         }
 
     }
+
+    if (!class_exists(LogicalNot::class)) {
+        
+        class LogicalNot extends \PHPUnit_Framework_Constraint_Not
+        {
+            
+        }
+        
+        
+    }
+
 }
 
 namespace {
@@ -53,5 +64,12 @@ namespace {
             
         }
 
+    }
+    
+    if (!class_exists(PHPUnit_Framework_Constraint_Not::class)) {
+        class PHPUnit_Framework_Constraint_Not extends PHPUnit\Framework\Constraint\LogicalNot
+        {
+            
+        }
     }
 }
