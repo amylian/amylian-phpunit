@@ -60,6 +60,12 @@ class AssertsTest extends \PHPUnit\Framework\TestCase
         }
         throw new \PHPUnit\Framework\AssertionFailedError(__METHOD__ . ' did not fail as expected');
     }
+    
+    public function testAssertClassNotExistsNonExisting()
+    {
+        $this->assertClassNotExists(\NotExisting\TestClass::class);
+    }
+    
 
     public function testEqualsObjectData()
     {
